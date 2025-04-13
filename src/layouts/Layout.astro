@@ -22,8 +22,14 @@ const { title } = Astro.props;
 	</head>
 	<body>
 		<NavLinks />
-		<hr />
+<!-- <div style="border:1px solid lightgrey;width:85vw; " ></div> -->
+
 		<div transition:animate="fade">
+			<nav>
+				<a href="/">Home</a>
+				<a href="/about">About</a>
+				<a href="/blog/">Blog</a>
+			</nav>
 			<slot  />
 		</div>
 	</body>

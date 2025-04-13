@@ -1,12 +1,23 @@
 ---
+import { SlotString } from "astro/runtime/server/render/slot.js";
 import Layout from "./Layout.astro";
+import type { CollectionEntry } from "astro:content";
 
+interface Props {
+    post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props; 
 ---
 
 <Layout title="Blog">
     <div class="subNavigation">
         <a href="/blog/">&ltBack</a>
     </div>
+
+    <h2>{post.data.title}</h2>
+
+    <img src={post.data.image.url} alt={post.data.image.alt} class="center" />
     <slot></slot>
 </Layout>
 
@@ -15,4 +26,11 @@ import Layout from "./Layout.astro";
     .subNavigation a {
         color:cyan
     }
-</style>>
+
+    .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%;
+}
+</style>

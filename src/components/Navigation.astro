@@ -1,0 +1,73 @@
+---
+import {
+    Astronav,
+    MenuItems,
+    MenuIcon,
+    Dropdown,
+    DropdownItems,
+    DropdownSubmenu,
+} from "astro-navbar";
+---
+
+<div>
+    <Astronav>
+        <div class="flex justify-between">
+            <MenuIcon class="w-4 h-4 text-gray-800" />
+        </div>
+        <!--
+    // add `hidden` class by default for mobile
+    // `lg:flex` is to make it visible in desktop
+    // You may use custom CSS instead.
+    -->
+        <MenuItems class="lg:flex">
+            <ul>
+                <li>
+                    <a href="/about">Snapshot</a>
+                </li>
+                <li>
+                    <a href="/education">Experience and Education</a>
+                </li>
+                <li>
+                    <a href="/experience/eurofins"
+                        >Eurofins Lancaster Laboratories Detail</a
+                    >
+                </li>
+                <li>
+                    <a href="/experience/awe">AWE Detail</a>
+                </li>
+                <li>
+                    <a href="/continuing-education">Continuing Education</a>
+                </li>
+                <li><a href="/skills">Skills</a></li>
+                <li>
+                    <a
+                        title="Resume"
+                        href="http://timrohrer.info/wp-content/uploads/2018/02/TimRohrerResume_2018.pdf"
+                        >Resume</a
+                    >
+                </li>
+            </ul>
+        </MenuItems>
+    </Astronav>
+</div>
+
+<style>
+    .hidden {
+        display: none;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 1em;
+        margin: .3em 0;
+        font-size: 1.1em;
+    }
+    li {
+        margin: .3em 0;
+    }
+
+    li a {
+        color: lightgray;
+        text-decoration: none;
+    }
+</style>

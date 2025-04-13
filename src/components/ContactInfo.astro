@@ -1,0 +1,84 @@
+---
+import EmailIcon from '../icons/email.svg';
+import LinkedInIcon from '../icons/linkedin.svg';
+---
+
+<div class="contactInfo">
+    <div
+        id="site-avatar"
+        class="site-avatar"
+        style="background-image: url('/images/Avatar.jpg')"
+    />
+
+    <div id="name">Tim Rohrer</div>
+    <div id="jobTitle">Software Development Manager</div>
+
+    <div class="social-media-icons">
+        <div>
+            <a class="linkedin icon-text"
+                target="_blank"
+                href="http://www.linkedin.com/in/tim-rohrer">
+                <LinkedInIcon size={19} />
+            </a>
+            <a class="email icon-text" target="_blank" href="mailto:timprohrer@gmail.com">
+                <EmailIcon />
+            </a>
+        </div>
+    </div>
+</div>
+<style>
+    :root {
+        --social-link: #CCCCCC;
+    }
+
+    .contactInfo {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .site-avatar {
+        float: none;
+        height: 96px;
+        width: 96px;
+        margin: 0 auto 0.75em;
+        border-radius: 50%;
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        box-sizing: border-box;
+    }
+    
+    .social-media-icons a:link, .social-media-icons a:visited {
+        color: var(--social-link);
+    }
+
+    .social-media-icons {
+        padding: 1.5em;
+    }
+
+    .social-media-icons a {
+        display: inline-block;
+        color: var(--social-link);
+        font-size: 1.5em;
+        line-height: 1;
+        text-decoration: none;
+    }
+
+    @font-face {
+        font-family: "Rokkitt", sans-serif;
+        src: url('https://fonts.googleapis.com/css?family=Rokkitt%3A400%2C700%7CLato%3A400%2C700&subset=latin%2Clatin-ext&display=swap&ver=6.6.2');
+    }
+
+    #name {
+        font-size: 1.75em;
+        font-family: "Rokkitt";
+    }
+
+    #jobTitle {
+        font-size: 0.75em;
+    }
+</style>

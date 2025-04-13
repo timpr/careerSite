@@ -1,31 +1,56 @@
+---
+import ContactInfo from "./ContactInfo.astro";
+import Navigation from "./Navigation.astro";
+---
+
 <div class="navigation">
-    <nav>
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="/blog/">Blog</a>
-    <a href="/test">Test MD</a>
-    </nav>
+    <div class="contactInfo">
+        <ContactInfo />
+    </div>
+
+    <Navigation />
 </div>
 
 <style>
+    :root {
+        --navbar-background: #27292b;
+        --seperator: lightgrey;
+    }
+
+    .contactInfo {
+        border-bottom: 1px solid var(--seperator);
+    }
+
+    body {
+        margin: 0;
+    }
+
     .navigation {
-        margin-bottom: 1em;
-        margin-top: 1em;
+        margin: 0;
+        background-color: var(--navbar-background);
     }
 
     .navigation a {
         color: beige;
         margin-left: 3em;
-        padding: .25em 1em;
+        padding: 0.25em 1em;
         text-decoration: none;
-        border-radius: .25em;
+        border-radius: 0.25em;
         background-color: blue;
         background-blend-mode: difference;
-        
-
     }
 
     .navigation a:hover {
         background-color: orangered;
+    }
+
+    .icon-text {
+        display: flex;
+        align-items: center;
+    }
+
+    .icon-text svg {
+        margin-right: 0.5em;
+        vertical-align: middle;
     }
 </style>
