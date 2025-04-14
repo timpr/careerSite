@@ -1,0 +1,77 @@
+---
+import { SlotString } from "astro/runtime/server/render/slot.js";
+import Layout from "./Layout.astro";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+    frontmatter: {
+        title: string;
+    };
+}
+
+const {frontmatter} = Astro.props;
+
+---
+
+<Layout  title={frontmatter.title}>
+    <div class="sheetBackground">
+        <div class="article">
+            <slot />
+        </div>
+    </div>
+    <!-- <h2>{post.data.title}</h2> -->
+
+    <!-- <img src={post.data.image.url} alt={post.data.image.alt} class="center" /> -->
+</Layout>
+
+<style>
+    @font-face {
+        font-family: "Rokkitt";
+        src: url('https://fonts.gstatic.com/s/rokkitt/v36/qFdE35qfgYFjGy5hkEaCdg.woff2') format('woff2');
+      
+    }
+
+    .sheetBackground {
+        background-color: #F0F1F2;
+        padding: 3em 5em;
+    }
+
+    .article {
+        background-color: white;
+        color: black;
+        padding: 2em;
+
+        h1 {
+            font-family: "Rokkitt", sans-serif;
+            text-align: center;
+            font-size: 3em;
+            font-weight: normal;
+        }
+
+        h2 {
+            font-family: "Rokkitt", sans-serif;
+            font-size: 2em;
+            font-weight: normal;
+        }
+    
+        h3 {
+            font-family: "Rokkitt", sans-serif;
+            font-size: 1.25em;
+            font-weight: bold;
+            margin-bottom: 0px;
+
+            span {
+                font-size: .75em;
+                font-weight: normal;
+                font-family: system-ui, sans-serif;
+            }
+        }
+        
+        p {
+            margin-top: 0px;
+            margin-bottom: 6px;
+        }
+    }
+
+  
+</style>
