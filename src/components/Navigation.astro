@@ -7,6 +7,9 @@ import {
     DropdownItems,
     DropdownSubmenu,
 } from "astro-navbar";
+
+const currentPath = Astro.url.pathname;
+
 ---
 
 <div>
@@ -22,26 +25,26 @@ import {
         <MenuItems class="lg:flex">
             <ul>
                 <li>
-                    <a href="/about">Snapshot</a>
+                    <a href="/about" class={currentPath === '/about' ? 'active' : ''}>Snapshot</a>
                 </li>
                 <li>
-                    <a href="/education">Experience and Education</a>
+                    <a href="/experience" class={currentPath === '/experience' ? 'active' : ''}>Experience and Education</a>
                 </li>
                 <li>
-                    <a href="/experience/eurofins"
+                    <a href="/experience/eurofins" class={currentPath === '/experience/eurofins' ? 'active' : ''}
                         >Eurofins Lancaster Laboratories Detail</a
                     >
                 </li>
                 <li>
-                    <a href="/experience/awe">AWE Detail</a>
+                    <a href="/experience/awe" class={currentPath === '/experience/awe' ? 'active' : ''}>AWE Detail</a>
                 </li>
                 <li>
-                    <a href="/continuing-education">Continuing Education</a>
+                    <a href="/continuing-education" class={currentPath === '/continuing-education' ? 'active' : ''}>Continuing Education</a>
                 </li>
-                <li><a href="/skills">Skills</a></li>
+                <li><a href="/skills" class={currentPath === '/skills' ? 'active' : ''}>Skills</a></li>
                 <li>
                     <a
-                        title="Resume"
+                        title="Resume" class={currentPath === '/resume' ? 'active' : ''}
                         href="http://timrohrer.info/wp-content/uploads/2018/02/TimRohrerResume_2018.pdf"
                         >Resume</a
                     >
@@ -64,10 +67,19 @@ import {
     }
     li {
         margin: .3em 0;
+        padding: .25em;
     }
 
     li a {
-        color: lightgray;
+        color: white;
         text-decoration: none;
+    }
+
+    li a:hover {
+        text-decoration: underline;
+    }
+
+    li a.active {
+        text-decoration: underline;
     }
 </style>
