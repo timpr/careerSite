@@ -1,95 +1,54 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import ExperienceLayout from "../layouts/ExperienceLayout.astro";
+
+const params = {
+    title: "Snapshot",
+}
 ---
-<Layout title="Welcome to Astro.">
-	<main>
-	
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
-	</main>
-</Layout>
+
+<ExperienceLayout frontmatter={params}>
+    <h1>{params.title}</h1>
+
+    <img src="/images/Snapshot.jpg" /> 
+
+    <p>
+        Hello, I’m Tim. I’m a senior software developer based in Elizabethtown,
+        PA with over 10 years of software development experience. I attended
+        Drexel University where I obtained a BS in Information Technology with a
+        minor in Business Administration. During my time at Drexel, I held
+        internships with AWE, Inc. and SAP. After graduation I was offered a
+        permanent position with AWE, Inc., where I was the senior developer for
+        7 years. Since June of 2015 I have been serving as a principle software
+        developer at Eurofins on a high profile line of business solution. 
+    </p>
+    <p>Aside
+        from a co-op as a server administrator, I have spent my career focused
+        on developing best of breed products and solutions. Having consistently
+        done full stack application and web development, my specialty has been
+        in creating and maintaining back-end components including web services,
+        operating systems management solutions, and databases. Able to complete
+        large projects as the sole developer or leading a team, I bring a
+        passion for learning and appropriately integrating new tools and
+        technologies to create the desired solution. While I have substantial
+        team management experience, my passion lies in development and being
+        able to work alongside expert developers while making an obvious
+        beneficial impact on the organization.
+    </p>
+</ExperienceLayout>
+
 
 <style>
-	main {
-		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
-	}
-	.astro-a {
-		position: absolute;
-		top: -32px;
-		left: 50%;
-		transform: translatex(-50%);
-		width: 220px;
-		height: auto;
-		z-index: -1;
-	}
-	h1 {
-		font-size: 4rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-		margin-bottom: 1em;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		margin-bottom: 2rem;
-		border: 1px solid rgba(var(--accent-light), 25%);
-		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
-		padding: 1.5rem;
-		border-radius: 8px;
-	}
-	.instructions code {
-		font-size: 0.8em;
-		font-weight: bold;
-		background: rgba(var(--accent-light), 12%);
-		color: rgb(var(--accent-light));
-		border-radius: 4px;
-		padding: 0.3em 0.4em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent-light));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 2rem;
-		padding: 0;
-	}
+    img {
+        max-width: 40em;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        padding: 0 2em 2em 2em;
+    }
+
+    p {
+        margin: 1.5em 0;
+        line-height: 1.5;
+        padding: 1em 0;
+    }
 </style>
