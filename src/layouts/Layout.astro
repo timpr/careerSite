@@ -55,6 +55,21 @@ const { title } = Astro.props;
 		grid-template-rows: minmax(100vh, auto);
 	}
 
+	@media (max-width: 900px) {
+        .layout {
+			grid-template-columns:100% ;
+			grid-template-rows: auto;
+            /* display: flex;
+             */
+			 flex-direction: column;
+        }
+
+        .nav-menu {
+            width: 100%;
+            padding: 1em;
+        }
+    }
+
 	html {
 		font-family: system-ui, sans-serif;
 		background: #13151a;

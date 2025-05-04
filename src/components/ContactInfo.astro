@@ -9,20 +9,20 @@ import LinkedInIcon from '../icons/linkedin.svg';
         class="site-avatar"
         style="background-image: url('/images/Avatar.jpg')"
     />
-
-    <div id="name">Tim Rohrer</div>
-    <div id="jobTitle">Software Development Manager</div>
-
-    <div class="social-media-icons">
-        <div>
-            <a class="linkedin icon-text"
-                target="_blank"
-                href="http://www.linkedin.com/in/tim-rohrer">
-                <LinkedInIcon   />
-            </a>
-            <a class="email icon-text" target="_blank" href="mailto:timprohrer@gmail.com">
-                <EmailIcon />
-            </a>
+    <div>
+        <div id="name">Tim Rohrer</div>
+        <div id="jobTitle">Software Development Manager</div>
+        <div class="social-media-icons">
+            <div>
+                <a class="linkedin icon-text"
+                    target="_blank"
+                    href="http://www.linkedin.com/in/tim-rohrer">
+                    <LinkedInIcon   />
+                </a>
+                <a class="email icon-text" target="_blank" href="mailto:timprohrer@gmail.com">
+                    <EmailIcon />
+                </a>
+            </div>
         </div>
     </div>
 </div>
@@ -85,5 +85,32 @@ import LinkedInIcon from '../icons/linkedin.svg';
 
     #jobTitle {
         font-size: 0.75em;
+    }
+
+    @media (max-width: 900px) {
+        .contactInfo {
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 1em;
+            text-align: left;
+        }
+        
+        .social-media-icons {
+            padding: 0;
+        }
+
+        .site-avatar {
+            margin: 0 1em;
+        }
+    }
+
+    @media (max-width: 500px) {
+        .site-avatar {
+            display: none;
+        }
+        #jobTitle {
+            display: none;
+        }
     }
 </style>

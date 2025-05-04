@@ -1,15 +1,21 @@
 ---
 import ContactInfo from "./ContactInfo.astro";
 import Navigation from "./Navigation.astro";
+import '../style/global.css';
 ---
 
-<div class="navigation">
+<div class="nav-container">
+    <button id="menu-toggle" class="menu-icon">☰</button>
+
     <div class="contactInfo">
         <ContactInfo />
     </div>
 
-    <Navigation />
+    <div id="nav-menu">
+        <Navigation id="nav-menu" />
+    </div>
 </div>
+
 
 <style>
     :root {
@@ -19,39 +25,95 @@ import Navigation from "./Navigation.astro";
 
     .contactInfo {
         border-bottom: 1px solid var(--seperator);
-        margin: 1em;
+        margin: 0;
     }
 
     body {
         margin: 0;
     }
 
-    .navigation {
+    .nav-container {
+        position: relative;
         margin: 0;
         background-color: var(--navbar-background);
+        padding: 1em;
     }
 
-    .navigation a {
-        color: beige;
-        margin-left: 3em;
-        padding: 0.25em 1em;
-        text-decoration: none;
-        border-radius: 0.25em;
-        background-color: blue;
-        background-blend-mode: difference;
+    .menu-icon {
+        position: absolute; /* Position relative to .nav-container */
+        top: 0; 
+        right: 0;
+        font-size: 1.25em;
+        cursor: pointer;
+        background: none;
+        border: 1px solid;
+        border-color: var(--seperator);
+        color: white;
+        margin: 0.5em;
     }
 
-    .navigation a:hover {
-        background-color: orangered;
-    }
 
-    .icon-text {
-        display: flex;
-        align-items: center;
+    @media (min-width: 900px) {
+        .menu-icon {
+            display: none;
+        }
     }
+    @media (max-width: 900px) {
+        .hidden {
+            display: none;
+        }
 
-    .icon-text svg {
-        margin-right: 0.5em;
-        vertical-align: middle;
+        .contactInfo {
+            /* border-bottom: none; */
+            padding-bottom: .5em;
+        }
+
+        .nav-container {
+            padding-bottom: 0;
+        }
     }
 </style>
+
+<script>
+    const initializeMenuButtonHandler = () => {
+        const menuToggle = document.getElementById("menu-toggle");
+        const navMenu = document.getElementById("nav-menu");
+
+        //Ensure hidden by default
+        navMenu?.classList.add("hidden");
+        
+        menuToggle?.addEventListener("click", () => {
+            navMenu?.classList.toggle("hidden");
+        });
+    };
+
+
+    document.addEventListener("DOMContentLoaded", () => {
+        initializeMenuButtonHandler();
+
+        const navMenu = document.getElementById("nav-menu");
+        const mainLayoutMinWidth = getComputedStyle(document.documentElement).getPropertyValue('--main-layout-min-width');
+        const mediaQuery = window.matchMedia(`(max-width: ${mainLayoutMinWidth})`);
+
+        // Function to handle media query changes
+        const handleMediaQueryChange = (e: MediaQueryListEvent | MediaQueryList) => {
+            if (e.matches) {
+                // Media query matches (screen width <= 900px)
+                navMenu?.classList.add("hidden");
+            } else {
+                // Media query does not match (screen width > 900px)
+                navMenu?.classList.remove("hidden");
+            }
+        };
+
+        // Initial check
+        handleMediaQueryChange(mediaQuery);
+
+        // Listen for changes in the media query
+        mediaQuery.addEventListener("change", handleMediaQueryChange);
+    });
+
+    document.addEventListener("astro:after-swap", () => {
+        initializeMenuButtonHandler();
+    });
+</script>
